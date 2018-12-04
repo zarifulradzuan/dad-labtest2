@@ -89,7 +89,7 @@ public class Sender {
 						try {
 							Socket clientSocket = new Socket("localhost",8081);
 							DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-							outToServer.writeUTF(txtFilePath.getText());
+							outToServer.writeUTF(txtKey.getText());
 							DataInputStream inFromServer = new DataInputStream(clientSocket.getInputStream());
 							String fromServer = inFromServer.readUTF();
 							textArea.setText(fromServer);
@@ -147,8 +147,6 @@ public class Sender {
 		});
 		btnStart.setBounds(267, 61, 89, 23);
 		frame.getContentPane().add(btnStart);
-
-
 	}
 
 	class ReadFileThread implements Runnable{
