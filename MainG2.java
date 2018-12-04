@@ -1,9 +1,11 @@
 import java.awt.EventQueue;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -62,9 +64,11 @@ public class MainG2 {
 						try {
 							String input = receiverListenerArea.getText();
 						    BufferedWriter writer;
-							writer = new BufferedWriter(new FileWriter("Welcome.txt", true));
-							writer.append("\n");
-						    writer.append(input);
+						    JFileChooser chooser = new JFileChooser();
+						    chooser.showSaveDialog(null);
+							writer = new BufferedWriter(new FileWriter(chooser.getSelectedFile().getAbsolutePath(), true));
+							
+						    writer.write(input);
 						    writer.close();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block

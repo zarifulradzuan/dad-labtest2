@@ -17,9 +17,11 @@ public class Listener extends Thread {
 		
 		try {
 			ServerSocket varServer = new ServerSocket(88);
+			while(true){
 			Socket skt = varServer.accept();
 			DataInputStream in = new DataInputStream(skt.getInputStream());
 			receiverListenerArea.setText(in.readUTF());
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
